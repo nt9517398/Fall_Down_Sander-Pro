@@ -1,0 +1,11 @@
+{
+  "base": {
+    "style": {
+      "backgroundColor": "#FFFFFF",
+      "color": "#FFFFFF",
+      "stroke": "#2E2E2E",
+      "strokeWidth": "10px",
+      "fill": "#FFFFFF"
+    }
+  }
+}

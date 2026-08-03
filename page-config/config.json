@@ -1,0 +1,36 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Page/ProductEntry"
+    },
+    "/Grade_Sheet": {
+      "title": "",
+      "viewPath": "Page/Grade_Sheet"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 58,
+        "viewParams": {
+          "breakpointLarge": "768",
+          "breakpointMedium": "500",
+          "params": {},
+          "path": "Header/Header"
+        },
+        "viewPath": "Framework/Breakpoint"
+      }
+    ]
+  }
+}

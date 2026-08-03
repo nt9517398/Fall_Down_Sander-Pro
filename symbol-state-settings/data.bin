@@ -1,0 +1,57 @@
+{
+  "processInterlock": {
+    "themes": {
+      "light": {
+        "primary": "FFCA8A",
+        "secondary": "F99797",
+        "tertiary": "3272D9",
+        "stroke": "B80D0D",
+        "enableAnimation": false,
+        "enableFlashing": true
+      },
+      "light-warm": {
+        "primary": "FFCA8A",
+        "secondary": "F99797",
+        "tertiary": "3272D9",
+        "stroke": "B80D0D",
+        "enableAnimation": false,
+        "enableFlashing": true
+      },
+      "light-cool": {
+        "primary": "FFCA8A",
+        "secondary": "F99797",
+        "tertiary": "3272D9",
+        "stroke": "B80D0D",
+        "enableAnimation": false,
+        "enableFlashing": true
+      },
+      "dark": {
+        "primary": "FFAC47",
+        "secondary": "8F0E0E",
+        "tertiary": "5691F0",
+        "stroke": "FA8E8E",
+        "enableAnimation": false,
+        "enableFlashing": true
+      },
+      "dark-warm": {
+        "primary": "FF8C00",
+        "secondary": "8F0E0E",
+        "tertiary": "5691F0",
+        "stroke": "FA8E8E",
+        "enableAnimation": false,
+        "enableFlashing": true
+      },
+      "dark-cool": {
+        "primary": "FF8C00",
+        "secondary": "8F0E0E",
+        "tertiary": "5691F0",
+        "stroke": "FA8E8E",
+        "enableAnimation": false,
+        "enableFlashing": true
+      }
+    },
+    "applied": [
+      "2 Way Valve"
+    ]
+  }
+}
