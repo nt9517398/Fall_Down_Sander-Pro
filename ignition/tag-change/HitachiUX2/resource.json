@@ -1,0 +1,24 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onTagChange.py"
+  ],
+  "attributes": {
+    "changeTypes": [
+      "ValueChange"
+    ],
+    "lastModificationSignature": "fb31c8ff9a6fd4dbe9fe0959b4e515d44fb893cf5e309c192365f84935e33411",
+    "paths": [
+      "[default]Hitachi_UX2/_L15_GradeInfoToPrinter",
+      "[default]Hitachi_UX2/ResendTrigger"
+    ],
+    "lastModification": {
+      "actor": "Administrator",
+      "timestamp": "2026-07-28T23:01:43Z"
+    },
+    "enabled": true
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "sander_falldownDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "05c6a4656a45822940ede999819cf193eedc61b7e652e39f1291792f5fcdab71",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Administrator",
+      "timestamp": "2026-07-09T22:18:12Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "productDescription",
+        "sqlType": 7
+      }
+    ]
+  }
+}

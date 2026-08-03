@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "sander_falldownDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "e4c430e5b354c1a4880af5cb10fc40c7b0f5ed5714034238c8be453d3a597c9e",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Administrator",
+      "timestamp": "2026-06-11T04:04:58Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "loginTime",
+        "sqlType": 8
+      }
+    ]
+  }
+}

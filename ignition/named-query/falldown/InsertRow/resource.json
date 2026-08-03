@@ -1,0 +1,115 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "sander_falldownDB",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "39d3cb4dc078419bca94bb0f0c4659b50d99c5ad105ae08ff74d1ed0c68d350e",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "Administrator",
+      "timestamp": "2026-06-10T00:02:57Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "description",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "documentation",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "loginTime",
+        "sqlType": 8
+      },
+      {
+        "type": "Parameter",
+        "identifier": "barcode",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "classa",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "construction",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "face",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "grade",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "grader",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "length",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "product",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "rating",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "run_number",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "shift",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "thickness",
+        "sqlType": 2
+      },
+      {
+        "type": "Parameter",
+        "identifier": "width",
+        "sqlType": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "onTagChange.py"
+  ],
+  "attributes": {
+    "changeTypes": [
+      "ValueChange",
+      "QualityChange",
+      "TimestampChange"
+    ],
+    "lastModificationSignature": "de6cc4cf9c7caa047e6f26f4d8870734c658135f7cca895a6cbfcbb84c186e86",
+    "paths": [
+      "[default]sander_falldown/falldown/product/product_start_time"
+    ],
+    "lastModification": {
+      "actor": "Administrator",
+      "timestamp": "2026-06-10T02:05:59Z"
+    },
+    "enabled": true
+  }
+}
