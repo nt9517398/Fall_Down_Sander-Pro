@@ -1,0 +1,229 @@
+{
+  "custom": {},
+  "params": {
+    "TagDescription": "value",
+    "TagName": "value"
+  },
+  "permissions": {
+    "securityLevels": [],
+    "type": "AllOf"
+  },
+  "propConfig": {
+    "params.TagDescription": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.TagName": {
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 320,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Spacer"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.TagName}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#FFFFFF00"
+              },
+              "textStyle": {
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/close"
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.TagDescription"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": 14,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "text": "Valve Diagnostics",
+          "textStyle": {
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "AlarmStatusTable"
+            },
+            "position": {
+              "basis": "800px"
+            },
+            "propConfig": {
+              "props.filters.active.conditions.source": {
+                "binding": {
+                  "config": {
+                    "expression": "\"*\" + {view.params.TagName} + \"*\""
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "columns": {
+                "active": {
+                  "activeTime": {
+                    "enabled": false
+                  },
+                  "name": {
+                    "enabled": false
+                  },
+                  "priority": {
+                    "enabled": false
+                  },
+                  "source": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false
+                  }
+                }
+              },
+              "enableAcknowledge": false,
+              "enableDetails": false,
+              "enableHeader": false,
+              "enableShelve": false,
+              "enableUnshelve": false,
+              "filters": {
+                "active": {
+                  "conditions": {},
+                  "states": {
+                    "clearUnacked": false
+                  }
+                }
+              },
+              "pager": {
+                "hide": true
+              },
+              "selection": {
+                "active": {
+                  "mode": "none"
+                },
+                "shelved": {
+                  "mode": "none"
+                }
+              },
+              "toolbar": {
+                "enabled": false
+              }
+            },
+            "type": "ia.display.alarmstatustable"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

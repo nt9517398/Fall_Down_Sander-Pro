@@ -1,0 +1,191 @@
+{
+  "custom": {},
+  "params": {
+    "EngUnit": "value",
+    "TagDescription": "value",
+    "TagName": "value",
+    "orientation": "left"
+  },
+  "propConfig": {
+    "params.EngUnit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagDescription": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.orientation": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 39,
+      "width": 93
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": false,
+                "id": "rTg4rsqK",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": false,
+                "type": "open",
+                "viewParams": {
+                  "EngUnit": "{this.custom.EngUnit}",
+                  "TagDescription": "{this.custom.TagDescription}",
+                  "TagName": "{this.custom.TagName}"
+                },
+                "viewPath": "Templates/Instrument_Faceplate",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Sensor_28"
+        },
+        "propConfig": {
+          "custom.EngUnit": {
+            "binding": {
+              "config": {
+                "path": "view.params.EngUnit"
+              },
+              "type": "property"
+            }
+          },
+          "custom.TagDescription": {
+            "binding": {
+              "config": {
+                "path": "view.params.TagDescription"
+              },
+              "type": "property"
+            }
+          },
+          "custom.TagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.TagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.label.style.visibility": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]TagNamesMemoryBit"
+              },
+              "type": "tag"
+            }
+          },
+          "props.label.text": {
+            "binding": {
+              "config": {
+                "path": "this.custom.TagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.orientation": {
+            "binding": {
+              "config": {
+                "path": "view.params.orientation"
+              },
+              "type": "property"
+            }
+          },
+          "props.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "TagName": "{this.custom.TagName}"
+                },
+                "tagPath": "[default]{TagName}/STATUS_WORD"
+              },
+              "transforms": [
+                {
+                  "fallback": "faulted",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 1,
+                      "output": "default"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.value.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "TagName": "{this.custom.TagName}"
+                },
+                "tagPath": "[default]{TagName}/ACTUAL"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "integer",
+                  "type": "format"
+                },
+                {
+                  "expression": "{value} + {this.custom.EngUnit}",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "appearance": "p\u0026id",
+          "label": {
+            "location": "top",
+            "style": {
+              "backgroundColor": "#FFFFFF80"
+            }
+          },
+          "value": {
+            "style": {
+              "fontSize": 20
+            }
+          }
+        },
+        "type": "ia.symbol.sensor"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

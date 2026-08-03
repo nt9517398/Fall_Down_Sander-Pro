@@ -1,0 +1,462 @@
+{
+  "custom": {},
+  "params": {
+    "EngUnit": "value",
+    "Label": "value",
+    "RangeMax": "value",
+    "RangeMin": "value",
+    "SP_MAX": "value",
+    "SP_MIN": "value",
+    "Tag": "value"
+  },
+  "propConfig": {
+    "params.EngUnit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Label": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.RangeMax": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.RangeMin": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.SP_MAX": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.SP_MIN": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Tag": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 200,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.Label"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#D5D5D5",
+            "borderBottomLeftRadius": 10,
+            "borderBottomRightRadius": 10,
+            "borderTopLeftRadius": 10,
+            "borderTopRightRadius": 10
+          },
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "custom": {
+          "key": {
+            "aggregate": "Average",
+            "alias": "Chart",
+            "path": "[default]_04LTX0601/ACTUAL"
+          },
+          "key_1": [
+            {
+              "aggregate": "Average",
+              "alias": "Chart"
+            }
+          ]
+        },
+        "meta": {
+          "name": "Sparkline"
+        },
+        "position": {
+          "basis": "250px",
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.key.path": {
+            "binding": {
+              "config": {
+                "expression": "\"[default]\" + {view.params.TagName} + \"/ACTUAL\""
+              },
+              "enabled": false,
+              "type": "expr"
+            }
+          },
+          "custom.key_1[0].path": {
+            "binding": {
+              "config": {
+                "expression": "\"[default]\" + {view.params.Tag} + \"/PV\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.desired.high": {
+            "binding": {
+              "config": {
+                "path": "view.params.RangeMax"
+              },
+              "type": "property"
+            }
+          },
+          "props.desired.low": {
+            "binding": {
+              "config": {
+                "path": "view.params.RangeMin"
+              },
+              "type": "property"
+            }
+          },
+          "props.points": {
+            "binding": {
+              "config": {
+                "aggregate": "MinMax",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "1",
+                  "mostRecentUnits": "HOUR"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": true,
+                  "rate": "30"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": "{this.custom.key_1}",
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          },
+          "props.range.high": {
+            "binding": {
+              "config": {
+                "path": "view.params.RangeMax"
+              },
+              "type": "property"
+            }
+          },
+          "props.range.low": {
+            "binding": {
+              "config": {
+                "path": "view.params.RangeMin"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "desired": {
+            "fill": {
+              "color": "#00D9D9"
+            }
+          },
+          "range": {}
+        },
+        "type": "ia.display.sparkline"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Setpoint",
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "NumericEntryField"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "propConfig": {
+                  "props.inputBounds.maximum": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.SP_MAX"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.inputBounds.minimum": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.SP_MIN"
+                      },
+                      "type": "property"
+                    }
+                  },
+                  "props.value": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "Tag": "{view.params.Tag}"
+                        },
+                        "tagPath": "[default]{Tag}/SP"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "inputBounds": {}
+                },
+                "type": "ia.input.numeric-entry-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#D5D5D5",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Actual",
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "Tag": "{view.params.Tag}"
+                        },
+                        "tagPath": "[default]{Tag}/PV"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "round({value}, 1)",
+                          "type": "expression"
+                        },
+                        {
+                          "expression": "{value} + \" \" + {view.params.EngUnit}",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#D5D5D5",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "50px",
+                  "grow": 1
+                },
+                "props": {
+                  "text": "Output",
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Label_0"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "Tag": "{view.params.Tag}"
+                        },
+                        "tagPath": "[default]{Tag}/OUT"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "{value} + \" \" + \"%\"",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "tag"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "textAlign": "center"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#D5D5D5",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "marginBottom": 5,
+                "marginLeft": 5,
+                "marginRight": 5,
+                "marginTop": 5
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "80px",
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#AAAAAA",
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderStyle": "ridge",
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10,
+        "borderWidth": 5
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

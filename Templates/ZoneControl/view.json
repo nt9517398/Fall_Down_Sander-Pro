@@ -1,0 +1,224 @@
+{
+  "custom": {},
+  "params": {
+    "AutoStart": "value",
+    "Header": "value",
+    "Shutdown": "value",
+    "Step": "value",
+    "StepDescription": "value"
+  },
+  "propConfig": {
+    "params.AutoStart": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Header": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Shutdown": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.Step": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.StepDescription": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 95,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "26px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.Header"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# Import necessary modules\n\timport time\n\n\t# Define the tag path [default]_02MOT0101/RS\n\tTagName \u003d self.view.params.AutoStart\n\ttagPath \u003d (TagName)\n\t\n\t# Function to activate the tag\n\tdef activateTag():\n\t    # Write the value to the tag to activate it\n\t    system.tag.writeBlocking([tagPath], [True])\n\t    print(\"Tag activated.\")\n\t\n\t# Function to deactivate the tag\n\tdef deactivateTag():\n\t    # Write the value to the tag to deactivate it\n\t    system.tag.writeBlocking([tagPath], [False])\n\t    print(\"Tag deactivated.\")\n\t\n\t# Main function\n\tdef main():\n\t    # Activate the tag\n\t    activateTag()\n\t    \n\t    # Wait for 2 seconds\n\t    time.sleep(2)\n\t    \n\t    # Deactivate the tag\n\t    deactivateTag()\n\t\n\t# Run the main function\n\tmain()\t\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#00AC00",
+                "marginLeft": 5,
+                "marginRight": 5
+              },
+              "text": "Auto Start"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# Import necessary modules\n\timport time\n\n\t# Define the tag path [default]_02MOT0101/RS\n\tTagName \u003d self.view.params.Shutdown\n\ttagPath \u003d (TagName)\n\t\n\t# Function to activate the tag\n\tdef activateTag():\n\t    # Write the value to the tag to activate it\n\t    system.tag.writeBlocking([tagPath], [True])\n\t    print(\"Tag activated.\")\n\t\n\t# Function to deactivate the tag\n\tdef deactivateTag():\n\t    # Write the value to the tag to deactivate it\n\t    system.tag.writeBlocking([tagPath], [False])\n\t    print(\"Tag deactivated.\")\n\t\n\t# Main function\n\tdef main():\n\t    # Activate the tag\n\t    activateTag()\n\t    \n\t    # Wait for 2 seconds\n\t    time.sleep(2)\n\t    \n\t    # Deactivate the tag\n\t    deactivateTag()\n\t\n\t# Run the main function\n\tmain()\t\t\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#D90000",
+                "marginLeft": 5,
+                "marginRight": 5
+              },
+              "text": "Shutdown"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "100px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.Step"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#555555",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderStyle": "ridge",
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "borderWidth": 3,
+                "marginLeft": 5,
+                "marginRight": 5
+              },
+              "textStyle": {
+                "color": "#FFFFFF",
+                "fontWeight": "normal",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "26px",
+          "shrink": 0
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "26px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.StepDescription"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#555555",
+            "borderBottomLeftRadius": 5,
+            "borderBottomRightRadius": 5,
+            "borderStyle": "ridge",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "color": "#FFFFFF",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5,
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#AAAAAA",
+        "borderBottomLeftRadius": 5,
+        "borderBottomRightRadius": 5,
+        "borderStyle": "ridge",
+        "borderTopLeftRadius": 5,
+        "borderTopRightRadius": 5
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

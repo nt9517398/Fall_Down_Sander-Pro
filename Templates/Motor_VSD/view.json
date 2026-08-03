@@ -1,0 +1,253 @@
+{
+  "custom": {},
+  "params": {
+    "EngUnit": "value",
+    "TagDescription": "value",
+    "TagName": "value",
+    "feet": "bottom",
+    "orientation": "bottom"
+  },
+  "propConfig": {
+    "params.EngUnit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagDescription": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.feet": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.orientation": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 88,
+      "width": 88
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": false,
+                "id": "9xN24SSZ",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": false,
+                "type": "open",
+                "viewParams": {
+                  "EngUnit": "{this.custom.EngUnit}",
+                  "TagDescription": "{this.custom.TagDescription}",
+                  "TagName": "{this.custom.TagName}"
+                },
+                "viewPath": "Templates/Motor_VSD_Faceplate",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Motor_12"
+        },
+        "propConfig": {
+          "custom.EngUnit": {
+            "binding": {
+              "config": {
+                "path": "view.params.EngUnit"
+              },
+              "type": "property"
+            }
+          },
+          "custom.TagDescription": {
+            "binding": {
+              "config": {
+                "path": "view.params.TagDescription"
+              },
+              "type": "property"
+            }
+          },
+          "custom.TagName": {
+            "binding": {
+              "config": {
+                "path": "view.params.TagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.feet": {
+            "binding": {
+              "config": {
+                "path": "view.params.feet"
+              },
+              "type": "property"
+            }
+          },
+          "props.label.style.visibility": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[default]TagNamesMemoryBit"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "visible"
+                    },
+                    {
+                      "input": false,
+                      "output": "hidden"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.label.text": {
+            "binding": {
+              "config": {
+                "path": "this.custom.TagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.orientation": {
+            "binding": {
+              "config": {
+                "path": "view.params.orientation"
+              },
+              "type": "property"
+            }
+          },
+          "props.state": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "TagName": "{this.custom.TagName}"
+                },
+                "tagPath": "[default]{TagName}/STATUS"
+              },
+              "transforms": [
+                {
+                  "fallback": "faulted",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": 0,
+                      "output": "stopped"
+                    },
+                    {
+                      "input": 1,
+                      "output": "running"
+                    },
+                    {
+                      "input": 2,
+                      "output": "faulted"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.value.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "TagName": "{view.params.TagName}"
+                },
+                "tagPath": "[default]{TagName}/HA"
+              },
+              "transforms": [
+                {
+                  "fallback": "#FFFF8A00",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": false,
+                      "output": "#FFFF8ACC"
+                    }
+                  ],
+                  "outputType": "color",
+                  "type": "map"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.value.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "TagName": "{this.custom.TagName}"
+                },
+                "tagPath": "[default]{TagName}/CURRENT"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "integer",
+                  "type": "format"
+                },
+                {
+                  "expression": "{value} + {this.custom.EngUnit}",
+                  "type": "expression"
+                }
+              ],
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "label": {
+            "style": {
+              "backgroundColor": "#FFFFFF80"
+            }
+          },
+          "value": {
+            "location": "top"
+          }
+        },
+        "type": "ia.symbol.motor"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

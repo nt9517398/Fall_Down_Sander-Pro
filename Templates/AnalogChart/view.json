@@ -1,0 +1,293 @@
+{
+  "custom": {},
+  "params": {
+    "ChartName": "Surge Bin 1 Level",
+    "TagName": "[default]_06LTX0201/ACTUAL"
+  },
+  "propConfig": {
+    "params.ChartName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 200,
+      "width": 300
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "key": [
+            {
+              "aggregate": "MinMax",
+              "alias": "Chart"
+            }
+          ]
+        },
+        "meta": {
+          "name": "TimeSeriesChart"
+        },
+        "position": {
+          "basis": "300px"
+        },
+        "propConfig": {
+          "custom.key[0].path": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.TagName}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.plots[0].trends[0].series": {
+            "binding": {
+              "config": {
+                "path": "view.params.TagName"
+              },
+              "type": "property"
+            }
+          },
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "aggregate": "MinMax",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "1",
+                  "mostRecentUnits": "HOUR"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": false,
+                  "rate": "30"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "360",
+                  "type": "FIXED"
+                },
+                "tags": "{this.custom.key}",
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          },
+          "props.title.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.ChartName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "plots": [
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "",
+                      "size": 10
+                    },
+                    "offset": 10,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "%",
+                    "visible": true
+                  },
+                  "max": 100,
+                  "min": 0,
+                  "name": "%",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "",
+                    "count": "Auto",
+                    "label": {
+                      "font": {
+                        "color": "",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 60
+                }
+              ],
+              "markers": [
+                {
+                  "axis": "%",
+                  "line": {
+                    "color": "",
+                    "dashArray": 0,
+                    "label": {
+                      "font": {
+                        "color": "",
+                        "size": 10
+                      },
+                      "position": "left",
+                      "style": {
+                        "classes": ""
+                      },
+                      "text": ""
+                    },
+                    "opacity": 0.5,
+                    "style": {
+                      "classes": ""
+                    },
+                    "width": 1
+                  },
+                  "type": "line",
+                  "value": 0,
+                  "visible": true
+                }
+              ],
+              "relativeWeight": 1,
+              "trends": [
+                {
+                  "axis": "%",
+                  "baselines": [
+                    {
+                      "axis": "",
+                      "color": "",
+                      "column": "",
+                      "dashArray": 0,
+                      "function": "max",
+                      "label": {
+                        "font": {
+                          "color": "",
+                          "size": 10
+                        },
+                        "position": "right",
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": ""
+                      },
+                      "opacity": 0.5,
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": true,
+                      "width": 1
+                    }
+                  ],
+                  "breakLine": true,
+                  "columns": [
+                    {
+                      "color": "",
+                      "key": "",
+                      "styles": {
+                        "highlighted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "muted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "normal": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "selected": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "interpolation": "curveBasis",
+                  "radius": 2,
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            }
+          ],
+          "series": [
+            {
+              "name": "%"
+            }
+          ],
+          "timeAxis": {
+            "tickCount": 6
+          },
+          "title": {
+            "visible": true
+          }
+        },
+        "type": "ia.chart.timeseries"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

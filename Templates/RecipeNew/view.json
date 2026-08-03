@@ -1,0 +1,564 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 470,
+      "width": 710
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "text": "RECIPE WIZZARD",
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "text": "Recipe Name"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "custom": {
+              "altMax": 10
+            },
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/Recipe_Name"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "deferUpdates": false,
+              "rejectUpdatesWhileFocused": false,
+              "spellcheck": false
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "text": "Batch Weight"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/Batch_Weight"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#D5D5D5",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "3auto",
+              "grow": 1
+            },
+            "props": {
+              "text": "PP2 - Weight of solid addition to pre-mix tank"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/PP2"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "3auto",
+              "grow": 1
+            },
+            "props": {
+              "text": "PP4 - Weight of solid addition to formulation tank "
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/PP4"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#D5D5D5",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "3auto",
+              "grow": 1
+            },
+            "props": {
+              "text": "PP8 - Weight of RO water addition to formulation tank"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/PP8"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "3auto",
+              "grow": 1
+            },
+            "props": {
+              "text": "PP10 - Weight of liquid raw material into pre-mix tank, station A"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/PP10"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_4"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#D5D5D5",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "3auto",
+              "grow": 1
+            },
+            "props": {
+              "text": "PP11 - Weigh of liquid raw meterial into formulation tank, station B"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/PP11"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_6"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFFFFF",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "3auto",
+              "grow": 1
+            },
+            "props": {
+              "text": "PP12 - Weight of liquid raw meterial into formulation tank, station B"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": 180
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "fallbackDelay": 2.5,
+                    "mode": "direct",
+                    "tagPath": "[Recipe]Recipe/PP12"
+                  },
+                  "type": "tag"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_7"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#D5D5D5",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t# Import necessary modules\n\timport time\n\n\t# Define the tag path [default]_02MOT0101/RS\n\t#TagName \u003d self.view.params.TagName\n\ttagPath \u003d \"[Recipe]Recipe/RecipeCreate\"\n\t\n\t# Function to activate the tag\n\tdef activateTag():\n\t    # Write the value to the tag to activate it\n\t    system.tag.writeBlocking([tagPath], [True])\n\t    print(\"Tag activated.\")\n\t\n\t# Function to deactivate the tag\n\tdef deactivateTag():\n\t    # Write the value to the tag to deactivate it\n\t    system.tag.writeBlocking([tagPath], [False])\n\t    print(\"Tag deactivated.\")\n\t\n\t# Main function\n\tdef main():\n\t    # Activate the tag\n\t    activateTag()\n\t    \n\t    # Wait for 2 seconds\n\t    time.sleep(2)\n\t    \n\t    # Deactivate the tag\n\t    deactivateTag()\n\t\n\t# Run the main function\n\tmain()\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "marginLeft": 100,
+                "marginRight": 100
+              },
+              "text": "CREATE"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027\u0027)\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "marginLeft": 100,
+                "marginRight": 100
+              },
+              "text": "CANCEL"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_5"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 30
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": 10,
+        "borderBottomRightRadius": 10,
+        "borderStyle": "groove",
+        "borderTopLeftRadius": 10,
+        "borderTopRightRadius": 10,
+        "borderWidth": 5
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

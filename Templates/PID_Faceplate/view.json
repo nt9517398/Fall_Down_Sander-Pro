@@ -1,0 +1,1039 @@
+{
+  "custom": {},
+  "params": {
+    "EngUnit": "kPa",
+    "TagDescription": "value",
+    "TagName": "_130PIC0304"
+  },
+  "propConfig": {
+    "params.EngUnit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagDescription": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.TagName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 450,
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.TagName}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "#FFFFFF00"
+              },
+              "textStyle": {
+                "fontWeight": "bold",
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027\u0027)\t"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Spacer1"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/close"
+            },
+            "scripts": {
+              "customMethods": [
+                {
+                  "name": "newMethod",
+                  "params": [],
+                  "script": "\t# implement your method here\n\tsystem.perspective.closePopup(id\u003d\"Valve_XY_Faceplate\")"
+                }
+              ],
+              "extensionFunctions": null,
+              "messageHandlers": []
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_2"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "50px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.TagDescription"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "fontSize": 14,
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "25px"
+        },
+        "props": {
+          "style": {
+            "marginBottom": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "PV"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/PV"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "##.#",
+                              "type": "format"
+                            },
+                            {
+                              "expression": "{value} + \" \" + {view.params.EngUnit}",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#FFFFFF"
+                      },
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "borderStyle": "none",
+                    "marginBottom": 2,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "marginTop": 2
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "CV"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "basis": "80px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/CV"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "##.#",
+                              "type": "format"
+                            },
+                            {
+                              "expression": "{value} + \" \" + \"%\"",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#FFFFFF"
+                      },
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "borderStyle": "none",
+                    "marginBottom": 2,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "marginTop": 2
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Auto Setpoint"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "NumericEntryField"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "isAuthorized(false,\r\n\"Authenticated/Roles/Administrator\",\r\n\"Authenticated/Roles/Engineer\")"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/SPProg"
+                          },
+                          "transforms": [
+                            {
+                              "formatType": "numeric",
+                              "formatValue": "##.#",
+                              "type": "format"
+                            },
+                            {
+                              "expression": "{value} + \" \" + {view.params.EngUnit}",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "spinner": {
+                        "enabled": false
+                      },
+                      "style": {
+                        "borderStyle": "none",
+                        "fontSize": 16
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.EngUnit"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "style": {
+                        "backgroundColor": "#FFFFFF",
+                        "borderStyle": "none"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": 2,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "marginTop": 2
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#AAAAAA",
+                "marginBottom": 2,
+                "marginLeft": 2,
+                "marginRight": 2,
+                "marginTop": 2
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "135px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Proportional Gain"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "NumericEntryField"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "isAuthorized(false,\r\n\"Authenticated/Roles/Administrator\",\r\n\"Authenticated/Roles/Engineer\")"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/PGain"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "format": "0,0.00",
+                      "spinner": {
+                        "enabled": false
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": 2,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "marginTop": 2
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "135px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Integral Gain"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "NumericEntryField"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "isAuthorized(false,\r\n\"Authenticated/Roles/Administrator\",\r\n\"Authenticated/Roles/Engineer\")"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/IGain"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "format": "0,0.00",
+                      "spinner": {
+                        "enabled": false
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": 2,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "marginTop": 2
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "135px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Derivative Gain"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "NumericEntryField"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "expression": "isAuthorized(false,\r\n\"Authenticated/Roles/Administrator\",\r\n\"Authenticated/Roles/Engineer\")"
+                          },
+                          "type": "expr"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/DGain"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "format": "0,0.00",
+                      "spinner": {
+                        "enabled": false
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "style": {
+                    "marginBottom": 2,
+                    "marginLeft": 5,
+                    "marginRight": 5,
+                    "marginTop": 2
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "backgroundColor": "#AAAAAA",
+                "marginBottom": 2,
+                "marginLeft": 2,
+                "marginRight": 2,
+                "marginTop": 2
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0"
+        },
+        "position": {
+          "basis": "100px"
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": 0,
+            "marginTop": 10
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "Setpoint",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LinearScale"
+                    },
+                    "position": {
+                      "basis": "79px"
+                    },
+                    "propConfig": {
+                      "props.indicators[1].value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/SPProg"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "indicators": [
+                        {
+                          "color": "",
+                          "extent": 15,
+                          "indicatorStyle": "range",
+                          "label": "",
+                          "labelAngle": 270,
+                          "labelColor": "",
+                          "length": 0,
+                          "opacity": 0.4,
+                          "stroke": 1.5,
+                          "value": 85
+                        },
+                        {
+                          "color": "",
+                          "extent": 2,
+                          "indicatorStyle": "wedge",
+                          "label": "",
+                          "labelAngle": 270,
+                          "labelColor": "",
+                          "length": 25,
+                          "opacity": 1,
+                          "stroke": 2
+                        }
+                      ]
+                    },
+                    "type": "ia.display.linear-scale"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "justify": "center"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "PV",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LinearScale"
+                    },
+                    "position": {
+                      "basis": "79px"
+                    },
+                    "propConfig": {
+                      "props.indicators[1].value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/PV"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "indicators": [
+                        {
+                          "color": "",
+                          "extent": 15,
+                          "indicatorStyle": "range",
+                          "label": "",
+                          "labelAngle": 270,
+                          "labelColor": "",
+                          "length": 0,
+                          "opacity": 0.4,
+                          "stroke": 1.5,
+                          "value": 85
+                        },
+                        {
+                          "color": "",
+                          "extent": 2,
+                          "indicatorStyle": "wedge",
+                          "label": "",
+                          "labelAngle": 270,
+                          "labelColor": "",
+                          "length": 25,
+                          "opacity": 1,
+                          "stroke": 2
+                        }
+                      ]
+                    },
+                    "type": "ia.display.linear-scale"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "justify": "center"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "position": {
+                      "basis": "50px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "text": "CV",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "50px"
+                },
+                "props": {
+                  "direction": "column"
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LinearScale"
+                    },
+                    "position": {
+                      "basis": "79px"
+                    },
+                    "propConfig": {
+                      "props.indicators[1].value": {
+                        "binding": {
+                          "config": {
+                            "fallbackDelay": 2.5,
+                            "mode": "indirect",
+                            "references": {
+                              "TagName": "{view.params.TagName}"
+                            },
+                            "tagPath": "[default]{TagName}/CV"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "indicators": [
+                        {
+                          "color": "",
+                          "extent": 15,
+                          "indicatorStyle": "range",
+                          "label": "",
+                          "labelAngle": 270,
+                          "labelColor": "",
+                          "length": 0,
+                          "opacity": 0.4,
+                          "stroke": 1.5,
+                          "value": 85
+                        },
+                        {
+                          "color": "",
+                          "extent": 2,
+                          "indicatorStyle": "wedge",
+                          "label": "",
+                          "labelAngle": 270,
+                          "labelColor": "",
+                          "length": 25,
+                          "opacity": 1,
+                          "stroke": 2
+                        }
+                      ]
+                    },
+                    "type": "ia.display.linear-scale"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "justify": "center"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "150px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_3"
+        },
+        "position": {
+          "basis": "107px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "marginBottom": 10
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}
