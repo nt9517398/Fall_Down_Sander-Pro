@@ -1,0 +1,85 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 224,
+      "width": 638
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tcomments \u003d self.getSibling(\"TextArea\").props.text\n\tface \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/face\u0027).value\n\tgrade \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/grade\u0027).value\n\tgrader \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/grader\u0027).value\n\tlength \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/length\u0027).value\n\tproduct \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/product\u0027).value\n\tshift \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/shift\u0027).value\n\tthickness \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/thickness\u0027).value\n\twidth \u003d  system.tag.read(\u0027[default]site_sander/falldown/product/width\u0027).value\n\tt_stamp \u003d system.date.format(system.date.addSeconds(system.date.now(),0), \"yyyy-MM-dd HH:mm:ss\")\n\trating \u003d system.tag.read(\u0027[default]site_sander/falldown/product/rating\u0027).value\n\tconstruction \u003d system.tag.read(\u0027[default]site_sander/falldown/product/construction\u0027).value\n\t\n\t\n\tif self.getSibling(\"TextArea\").props.text !\u003d \"\":\n\t\tsystem.db.runPrepUpdate(\"INSERT INTO falldown_sander_comments (  comments,face, grade, grader, length, product, shift, thickness, width, t_stamp, rating, construction) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)\", [comments,face, grade, grader, length, product, shift, thickness, width, t_stamp, rating, construction], \"falldown_sander\")\n\t\t\n\tself.getSibling(\"TextArea\").props.text \u003d \"\"\n\t\n\ttagValue \u003d system.tag.read(\u0027[default]site_sander/falldown/product/run_number\u0027).value+1\n\tsystem.tag.write(\u0027[default]site_sander/falldown/product/run_number\u0027,tagValue)\n\t\n\tsystem.perspective.closePopup(\u0027DZVFbaUo\u0027)\n\tsystem.perspective.openPopup(\u0027zNyej1Q0\u0027,\u0027Popup_Views/Popup-Falldown\u0027)\n\t"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 50,
+          "width": 270.01,
+          "x": 184.47,
+          "y": 160.51
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#00D9D9"
+          },
+          "text": "SAVE AND CLOSE",
+          "textStyle": {
+            "fontSize": 25
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 33.00000000000001,
+          "width": 217,
+          "x": 6.943593750000002,
+          "y": 8.009999999999998
+        },
+        "props": {
+          "text": "COMMENTS:",
+          "textStyle": {
+            "fontSize": 30
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "TextArea"
+        },
+        "position": {
+          "height": 98,
+          "width": 603,
+          "x": 17.93,
+          "y": 50.5
+        },
+        "type": "ia.input.text-area"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "backgroundColor": "#2B2B2B"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,525 @@
+{
+  "custom": {},
+  "params": {
+    "params": {},
+    "size": "medium"
+  },
+  "propConfig": {
+    "params.params": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.size": {
+      "paramDirection": "input"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 58
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer Start"
+        },
+        "position": {
+          "basis": "16px",
+          "shrink": 0
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "id": "menu",
+                "type": "toggle"
+              },
+              "scope": "C",
+              "type": "dock"
+            }
+          }
+        },
+        "meta": {
+          "name": "Menu Dock"
+        },
+        "position": {
+          "basis": "24px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.size} !\u003d \"large\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/menu",
+          "style": {
+            "classes": "Header/Icon",
+            "marginRight": "10px"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Image"
+        },
+        "position": {
+          "basis": "230px"
+        },
+        "props": {
+          "fit": {
+            "mode": "fill"
+          },
+          "source": "/system/images/porta_logo_converted.png\n",
+          "style": {
+            "opacity": 1
+          }
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Filler"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Dropdown"
+        },
+        "position": {
+          "basis": "124px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.value": {
+            "binding": {
+              "config": {
+                "bidirectional": true,
+                "path": "session.props.theme"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": [
+            {
+              "label": "light",
+              "value": "light"
+            },
+            {
+              "label": "light-cool",
+              "value": "light-cool"
+            },
+            {
+              "label": "light-warm",
+              "value": "light-warm"
+            },
+            {
+              "label": "dark",
+              "value": "dark"
+            },
+            {
+              "label": "dark-cool",
+              "value": "dark-cool"
+            },
+            {
+              "label": "dark-warm",
+              "value": "dark-warm"
+            }
+          ],
+          "search": {
+            "enabled": false
+          },
+          "style": {
+            "classes": "Header/DropDown",
+            "textAlign": "left"
+          }
+        },
+        "type": "ia.input.dropdown"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer 1"
+        },
+        "position": {
+          "basis": "10px"
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "draggable": true,
+                "id": "K1U2Z6ZP",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": false,
+                "showCloseIcon": true,
+                "type": "open",
+                "viewPath": "UserManagement/UserManagement",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false,\r\n\"Authenticated/Roles/Administrator\")"
+              },
+              "type": "expr"
+            }
+          },
+          "position.basis": {
+            "binding": {
+              "config": {
+                "expression": "isAuthorized(false,\r\n\"Authenticated/Roles/Administrator\")"
+              },
+              "transforms": [
+                {
+                  "fallback": null,
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": 100
+                    },
+                    {
+                      "input": false,
+                      "output": 0
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FFFFFF00",
+            "borderStyle": "solid",
+            "marginBottom": 10,
+            "marginTop": 10
+          },
+          "text": "User Management",
+          "textStyle": {
+            "classes": "Header/DropDown",
+            "fontWeight": "normal"
+          }
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.session.props.auth.authenticated:\n\t\tsystem.perspective.logout()\n\telse:\n\t\tsystem.perspective.login()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Administrator"
+        },
+        "position": {
+          "basis": "30px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "meta.name": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "enabled": false,
+              "transforms": [
+                {
+                  "code": "\tsystem.tag.writeAsync(\"[default]falldown_formply_trimline/falldown/product/grader\", self.session.props.auth.user.userName) \n\treturn value\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/person",
+          "style": {
+            "classes": "Header/Icon"
+          }
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "custom": {
+          "LoggedInUser": "value"
+        },
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "script": "\tif self.session.props.auth.authenticated:\n\t\tsystem.perspective.logout()\n\telse:\n\t\tsystem.perspective.login()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "hasDelegate": true,
+          "name": "Sign In"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.size} !\u003d \"small\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003d null || len({value}) \u003d 0, \"Sign In\", {value})",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "Header/Icon",
+            "cursor": "pointer",
+            "marginLeft": "4px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer 2"
+        },
+        "position": {
+          "basis": "10px",
+          "shrink": 0
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/alarms"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "name": "Alarm Icon",
+          "visible": false
+        },
+        "position": {
+          "basis": "26px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "../Alarms.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"Header/Icon\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "path": "material/alarm"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {
+                "page": "/alarms"
+              },
+              "scope": "C",
+              "type": "nav"
+            }
+          }
+        },
+        "meta": {
+          "hasDelegate": true,
+          "name": "Alarms",
+          "visible": false
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.numAlarms": {
+            "binding": {
+              "config": {
+                "expression": "now(2000)"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn len(system.alarm.queryStatus(state\u003d[\"ActiveUnacked\"]))",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.size} !\u003d \"small\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.classes": {
+            "binding": {
+              "config": {
+                "path": "../Alarms.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "this.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "numberFormat({value}, \"#,##0\") + \" alarm\" + if({value} \u003e 1 || {value} \u003d 0, \"s\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "cursor": "pointer",
+            "marginLeft": "6px"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "hasDelegate": true,
+          "name": "Spacer End"
+        },
+        "position": {
+          "basis": "16px",
+          "shrink": 0
+        },
+        "props": {
+          "text": " "
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "session.props.theme"
+          },
+          "transforms": [
+            {
+              "code": "\tif \"dark\" in value:\n\t\treturn \"var(--neutral-10)\"\n\telse:\n\t\treturn \"\"",
+              "type": "script"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "style": {
+        "classes": "Header/Header"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

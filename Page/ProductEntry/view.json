@@ -1,0 +1,1824 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 893,
+      "width": 1692
+    },
+    "draggable": false
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "RunInfo_Header"
+            },
+            "props": {
+              "style": {
+                "fontSize": "18px",
+                "fontWeight": "700",
+                "marginBottom": "8px"
+              },
+              "text": "Run Info"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "datetime_label",
+                  "tooltip": {
+                    "style": {
+                      "marginRight": 0
+                    }
+                  }
+                },
+                "props": {
+                  "text": "DATE / TIME",
+                  "textStyle": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "datetime_value",
+                  "tooltip": {
+                    "style": {
+                      "marginRight": 0
+                    }
+                  }
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "now()"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "medium"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "SHIFT_label"
+                    },
+                    "props": {
+                      "text": "Shift",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "SHIFT"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/shift"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "DAY",
+                          "value": "DAY"
+                        },
+                        {
+                          "label": "AFTERNOON",
+                          "value": "AFTERNOON"
+                        },
+                        {
+                          "label": "NIGHT",
+                          "value": "NIGHT"
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "SHIFT_field",
+                  "tooltip": {
+                    "style": {
+                      "marginRight": 0
+                    }
+                  }
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px"
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "RunInfo"
+            },
+            "props": {
+              "gap": "12px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "RunInfo_Card"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "ContainerCard"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "ProductDetails_Header"
+            },
+            "props": {
+              "style": {
+                "fontSize": "18px",
+                "fontWeight": "700",
+                "marginBottom": "8px"
+              },
+              "text": "Product Details"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "GRADE_label"
+                    },
+                    "props": {
+                      "text": "Grade",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "GRADE"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/grade"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "CC",
+                          "value": "CC"
+                        },
+                        {
+                          "label": "CD",
+                          "value": "CD"
+                        },
+                        {
+                          "label": "DD",
+                          "value": "DD"
+                        },
+                        {
+                          "label": "NS",
+                          "value": "NS"
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "GRADE_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "PRODUCT_label"
+                    },
+                    "props": {
+                      "text": "Product",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "PRODUCT"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/product"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "EcoPly",
+                          "value": "EcoPly"
+                        },
+                        {
+                          "label": "PlyFloor",
+                          "value": "PlyFloor"
+                        },
+                        {
+                          "label": "PlyBrace",
+                          "value": "PlyBrace"
+                        },
+                        {
+                          "label": "PlyRoof",
+                          "value": "PlyRoof"
+                        },
+                        {
+                          "label": "Non Struct",
+                          "value": "Non Struct"
+                        },
+                        {
+                          "label": "CCFO",
+                          "value": "CCFO"
+                        },
+                        {
+                          "label": "Trial",
+                          "value": "Trial"
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "PRODUCT_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "RATING_label"
+                    },
+                    "props": {
+                      "text": "Rating",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "RATING"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/rating"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "F0",
+                          "value": "F0"
+                        },
+                        {
+                          "label": "F8",
+                          "value": "F8"
+                        },
+                        {
+                          "label": "F11",
+                          "value": "F11"
+                        },
+                        {
+                          "label": "F14",
+                          "value": "F14"
+                        },
+                        {
+                          "label": "F17",
+                          "value": "F17"
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "RATING_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "CONSTRUCTION_label"
+                    },
+                    "props": {
+                      "text": "Construction",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "CONSTRUCTION"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/construction"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "3 PLY",
+                          "value": 3
+                        },
+                        {
+                          "label": "4 PLY",
+                          "value": 4
+                        },
+                        {
+                          "label": "5 PLY",
+                          "value": 5
+                        },
+                        {
+                          "label": "7 PLY",
+                          "value": 7
+                        },
+                        {
+                          "label": "9 PLY",
+                          "value": 9
+                        },
+                        {
+                          "label": "11 PLY",
+                          "value": 11
+                        },
+                        {
+                          "label": "13 PLY",
+                          "value": 13
+                        },
+                        {
+                          "label": "17 PLY",
+                          "value": 17
+                        },
+                        {
+                          "label": "21 PLY",
+                          "value": 21
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "CONSTRUCTION_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "ProductDetails"
+            },
+            "props": {
+              "gap": "12px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "ProductDetails_Card"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "ContainerCard"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Dimensions_Header"
+            },
+            "props": {
+              "style": {
+                "fontSize": "18px",
+                "fontWeight": "700",
+                "marginBottom": "8px"
+              },
+              "text": "Dimensions"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "THICKNESS_label"
+                    },
+                    "props": {
+                      "text": "Thickness",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "THICKNESS"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/thickness"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "7mm",
+                          "value": 7
+                        },
+                        {
+                          "label": "9mm",
+                          "value": 9
+                        },
+                        {
+                          "label": "12mm",
+                          "value": 12
+                        },
+                        {
+                          "label": "13mm",
+                          "value": 13
+                        },
+                        {
+                          "label": "15mm",
+                          "value": 15
+                        },
+                        {
+                          "label": "17mm",
+                          "value": 17
+                        },
+                        {
+                          "label": "19mm",
+                          "value": 19
+                        },
+                        {
+                          "label": "21mm",
+                          "value": 21
+                        },
+                        {
+                          "label": "25mm",
+                          "value": 25
+                        },
+                        {
+                          "label": "27mm",
+                          "value": 27
+                        },
+                        {
+                          "label": "28mm",
+                          "value": 28
+                        },
+                        {
+                          "label": "29mm",
+                          "value": 29
+                        },
+                        {
+                          "label": "30mm",
+                          "value": 30
+                        },
+                        {
+                          "label": "32mm",
+                          "value": 32
+                        },
+                        {
+                          "label": "33mm",
+                          "value": 33
+                        },
+                        {
+                          "label": "35mm",
+                          "value": 35
+                        },
+                        {
+                          "label": "38mm",
+                          "value": 38
+                        },
+                        {
+                          "label": "39mm",
+                          "value": 39
+                        },
+                        {
+                          "label": "42mm",
+                          "value": 42
+                        },
+                        {
+                          "label": "50mm",
+                          "value": 50
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "THICKNESS_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "LENGTH_label"
+                    },
+                    "props": {
+                      "text": "Length",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "LENGTH"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/length"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "2250mm",
+                          "value": 2250
+                        },
+                        {
+                          "label": "2400mm",
+                          "value": 2400
+                        },
+                        {
+                          "label": "2420mm",
+                          "value": 2420
+                        },
+                        {
+                          "label": "2440mm",
+                          "value": 2440
+                        },
+                        {
+                          "label": "2470mm",
+                          "value": 2470
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "LENGTH_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "WIDTH_label"
+                    },
+                    "props": {
+                      "text": "Width",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "WIDTH"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/width"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "1200mm",
+                          "value": 1200
+                        },
+                        {
+                          "label": "1220mm",
+                          "value": 1220
+                        },
+                        {
+                          "label": "1250mm",
+                          "value": 1250
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "WIDTH_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "FACE_label"
+                    },
+                    "props": {
+                      "text": "Face",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "FACE"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "fallbackDelay": 2.5,
+                            "mode": "direct",
+                            "tagPath": "[default]sander_falldown/falldown/product/face"
+                          },
+                          "type": "tag"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      },
+                      "options": [
+                        {
+                          "label": "1.5mm",
+                          "value": 1.5
+                        },
+                        {
+                          "label": "2.4mm",
+                          "value": 2.4
+                        },
+                        {
+                          "label": "3mm",
+                          "value": 3
+                        },
+                        {
+                          "label": "4mm",
+                          "value": 4
+                        }
+                      ]
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "FACE_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Dimensions"
+            },
+            "props": {
+              "gap": "12px"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Dimensions_Card"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "ContainerCard"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Printer_Header"
+            },
+            "props": {
+              "style": {
+                "fontSize": "18px",
+                "fontWeight": "700",
+                "marginBottom": "8px"
+              },
+              "text": "Printer Messages - Hitachi"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Selection_label"
+                    },
+                    "props": {
+                      "text": "Product Selection",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Selection"
+                    },
+                    "propConfig": {
+                      "props.enabled": {
+                        "binding": {
+                          "config": {
+                            "path": "session.props.auth.user.roles"
+                          },
+                          "transforms": [
+                            {
+                              "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                              "type": "expression"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      },
+                      "props.options": {
+                        "binding": {
+                          "config": {
+                            "queryPath": "hitachi/getProductCodes"
+                          },
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "props": {
+                      "dropdownOptionStyle": {
+                        "fontSize": 20
+                      }
+                    },
+                    "type": "ia.input.dropdown"
+                  }
+                ],
+                "meta": {
+                  "name": "Selection_field"
+                },
+                "position": {
+                  "basis": 300
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Product_Selection"
+            },
+            "props": {
+              "gap": "12px",
+              "style": {
+                "marginBottom": 10
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Bin"
+                    },
+                    "props": {
+                      "text": "Bin 1",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "label_0",
+                      "visible": false
+                    },
+                    "props": {
+                      "text": "Product Selection",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "BIN_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Line 1"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message1_line1\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Line 2"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message1_line2\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Message_field"
+                },
+                "position": {
+                  "basis": 150,
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Bin_info"
+            },
+            "props": {
+              "gap": "12px",
+              "style": {
+                "marginBottom": 10
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Bin"
+                    },
+                    "props": {
+                      "text": "Bin 2",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "label_0",
+                      "visible": false
+                    },
+                    "props": {
+                      "text": "Product Selection",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "BIN_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Line 1"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message2_line1\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Line 2"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message2_line2\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Message_field"
+                },
+                "position": {
+                  "basis": 150,
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Bin_info_0"
+            },
+            "props": {
+              "gap": "12px",
+              "style": {
+                "marginBottom": 10
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Bin"
+                    },
+                    "props": {
+                      "text": "Bin 3",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "label_0",
+                      "visible": false
+                    },
+                    "props": {
+                      "text": "Product Selection",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "BIN_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Line 1"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message3_line1\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Line 2"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message3_line2\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Message_field"
+                },
+                "position": {
+                  "basis": 150,
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Bin_info_1"
+            },
+            "props": {
+              "gap": "12px",
+              "style": {
+                "marginBottom": 10
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Bin"
+                    },
+                    "props": {
+                      "text": "Bin 4",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "label_0",
+                      "visible": false
+                    },
+                    "props": {
+                      "text": "Product Selection",
+                      "textStyle": {
+                        "textAlign": "center"
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "BIN_field"
+                },
+                "position": {
+                  "basis": 150
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Line 1"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message4_line1\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "Line 2"
+                    },
+                    "propConfig": {
+                      "props.text": {
+                        "binding": {
+                          "config": {
+                            "parameters": {
+                              "productDescription": "{..../Product_Selection/Selection_field/Selection.props.value}"
+                            },
+                            "queryPath": "hitachi/getMessages"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\n\n    if value is None or value.getRowCount() \u003d\u003d 0:\n        return \"\"\n\n    return value.getValueAt(0, \"message4_line2\")",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "query"
+                        }
+                      }
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Message_field"
+                },
+                "position": {
+                  "basis": 150,
+                  "grow": 1
+                },
+                "props": {
+                  "direction": "column",
+                  "gap": "4px",
+                  "style": {
+                    "marginRight": 20
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Bin_info_2"
+            },
+            "props": {
+              "gap": "12px",
+              "style": {
+                "marginBottom": 0
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Printer_Card"
+        },
+        "position": {
+          "basis": 400
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "ContainerCard"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Buttons_Header"
+            },
+            "props": {
+              "style": {
+                "fontSize": "18px",
+                "fontWeight": "700",
+                "marginBottom": "8px"
+              },
+              "text": "Select"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\n\n    logger \u003d system.util.getLogger(\"HitachiUX2\")\n\n    selectedProduct \u003d self.view.rootContainer.custom.selectedProduct\n\n    if selectedProduct is None or str(selectedProduct).strip() \u003d\u003d \"\":\n        logger.warn(\"Enter pressed with no product selected.\")\n        return\n\n    selectedProduct \u003d str(selectedProduct).strip()\n\n    tagPaths \u003d [\n        \"[default]sander_falldown/falldown/product/product_start_time\",\n        \"[default]Hitachi_UX2/product_description\"\n    ]\n\n    tagValues \u003d [\n        system.date.now(),\n        selectedProduct\n    ]\n\n    writeResults \u003d system.tag.writeBlocking(\n        tagPaths,\n        tagValues\n    )\n\n    for index, writeResult in enumerate(writeResults):\n\n        if not writeResult.isGood():\n\n            logger.error(\n                \"Failed to write tag %s. Quality: %s\"\n                % (\n                    tagPaths[index],\n                    str(writeResult)\n                )\n            )\n\n            return\n\n    def delayedPrinterTrigger():\n\n        import time\n        time.sleep(0.75)\n\n        triggerPath \u003d \"[default]Hitachi_UX2/ResendTrigger\"\n\n        triggerValue \u003d system.tag.readBlocking(\n            [triggerPath]\n        )[0]\n\n        if triggerValue.quality.isGood():\n\n            newTriggerValue \u003d int(triggerValue.value) + 1\n\n            triggerWriteResult \u003d system.tag.writeBlocking(\n                [triggerPath],\n                [newTriggerValue]\n            )[0]\n\n            if not triggerWriteResult.isGood():\n\n                logger.error(\n                    \"Failed to increment ResendTrigger. Quality: %s\"\n                    % str(triggerWriteResult)\n                )\n\n        else:\n\n            logger.error(\n                \"Could not read ResendTrigger. Quality: %s\"\n                % str(triggerValue.quality)\n            )\n\n    system.util.invokeAsynchronous(\n        delayedPrinterTrigger\n    )\n\n    system.perspective.navigate(\n        page\u003d\"/Grade_Sheet\"\n    )"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "EnterBtn"
+                },
+                "position": {
+                  "basis": 250
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.auth.user.roles"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#C51A45",
+                    "borderRadius": "8px",
+                    "color": "#ffffff",
+                    "fontWeight": "600",
+                    "padding": "10px 20px"
+                  },
+                  "text": "ENTER"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "page": "/Grade_Sheet"
+                      },
+                      "scope": "C",
+                      "type": "nav"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "ContinueBtn"
+                },
+                "position": {
+                  "basis": 250
+                },
+                "propConfig": {
+                  "props.enabled": {
+                    "binding": {
+                      "config": {
+                        "path": "session.props.auth.user.roles"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "if(indexOf(toString({value}), \"Operator\") \u003e\u003d 0, true, false)",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "backgroundColor": "#e0e0e0",
+                    "borderRadius": "8px",
+                    "color": "#333333",
+                    "fontWeight": "500",
+                    "padding": "10px 20px"
+                  },
+                  "text": "Continue With Previous Run"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "Buttons"
+            },
+            "props": {
+              "gap": "24px",
+              "justify": "space-around"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Buttons_Card"
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "classes": "ContainerCard"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "custom.selectedProduct": {
+        "binding": {
+          "config": {
+            "path": "./Printer_Card/Product_Selection/Selection_field/Selection.props.value"
+          },
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "gap": "16px",
+        "padding": "20px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

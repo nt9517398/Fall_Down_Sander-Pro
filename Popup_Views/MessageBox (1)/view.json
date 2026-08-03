@@ -1,0 +1,199 @@
+{
+  "custom": {},
+  "params": {
+    "message": "Are you sure?",
+    "showYesNo": true,
+    "title": "Message",
+    "yesAction": "value",
+    "yesTarget": "value",
+    "yesValue": "value"
+  },
+  "propConfig": {
+    "params.message": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showYesNo": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.yesAction": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.yesTarget": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.yesValue": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 200,
+      "width": 400
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.title"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#FAFAFB",
+            "overflow": "hidden"
+          },
+          "textStyle": {
+            "fontWeight": "bold",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "32px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.message"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\taction \u003d self.view.params.yesAction\n\ttarget \u003d self.view.params.yesTarget\n\tvalue  \u003d self.view.params.yesValue\n\n\tif action \u003d\u003d \"navigate\" and target:\n    \t\tsystem.perspective.navigate(target)\n\n\telif action \u003d\u003d \"writeTag\" and target is not None:\n    \t\tsystem.tag.writeBlocking([target], [value])\n\n\telif action \u003d\u003d \"close\":\n    \t\tpass  # just close the popup, no other action\n\n# Always close the popup at the end\n\tsystem.perspective.closePopup(\"msgBox\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "grow": 1
+            },
+            "props": {
+              "style": {
+                "marginBottom": 0,
+                "marginLeft": 10,
+                "marginRight": 10,
+                "marginTop": 0
+              },
+              "text": "Yes"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\"msgBox\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.showYesNo"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginLeft": 10,
+                "marginRight": 10
+              },
+              "text": "No"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "props": {
+          "justify": "space-around",
+          "style": {
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "marginTop": 5
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundClip": "padding-box",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "none"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

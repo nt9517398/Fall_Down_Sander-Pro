@@ -1,0 +1,189 @@
+{
+  "custom": {},
+  "params": {
+    "high": "",
+    "low": "value",
+    "max": "value",
+    "min": "value",
+    "minutes": 5,
+    "tagPath": "value"
+  },
+  "propConfig": {
+    "params.high": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.low": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.max": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.min": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.minutes": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 200,
+      "width": 200
+    },
+    "dropConfig": {
+      "dataTypes": [
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Int1"
+        },
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Int2"
+        },
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Int4"
+        },
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Int8"
+        },
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Float4"
+        },
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Float8"
+        },
+        {
+          "action": "path",
+          "param": "tagPath",
+          "type": "Boolean"
+        }
+      ]
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Sparkline"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.tag": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn [{\u0027path\u0027: value}]",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.desired.high": {
+            "binding": {
+              "config": {
+                "path": "view.params.high"
+              },
+              "type": "property"
+            }
+          },
+          "props.desired.low": {
+            "binding": {
+              "config": {
+                "path": "view.params.low"
+              },
+              "type": "property"
+            }
+          },
+          "props.points": {
+            "binding": {
+              "config": {
+                "aggregate": "MinMax",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "{view.params.minutes}",
+                  "mostRecentUnits": "MIN"
+                },
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": true,
+                  "rate": "3"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": "{this.custom.tag}",
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          },
+          "props.range.high": {
+            "binding": {
+              "config": {
+                "path": "view.params.max"
+              },
+              "type": "property"
+            }
+          },
+          "props.range.low": {
+            "binding": {
+              "config": {
+                "path": "view.params.min"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "desired": {
+            "fill": {
+              "color": "#B8DAFF",
+              "opacity": 1
+            }
+          },
+          "range": {}
+        },
+        "type": "ia.display.sparkline"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

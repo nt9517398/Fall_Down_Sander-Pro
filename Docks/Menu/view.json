@@ -1,0 +1,729 @@
+{
+  "custom": {
+    "numAlarms": 3
+  },
+  "params": {},
+  "propConfig": {
+    "custom.numAlarms": {
+      "binding": {
+        "config": {
+          "expression": "now(2000)"
+        },
+        "transforms": [
+          {
+            "code": "\treturn len(system.alarm.queryStatus(state\u003d[\"ActiveUnacked\"]))",
+            "type": "script"
+          }
+        ],
+        "type": "expr"
+      },
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 260
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "contextMenu": {
+            "style": {
+              "backgroundImage": "sample-images/Untitled Diagram.png"
+            }
+          },
+          "name": "Features"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.items[0].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[0].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[10].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[10].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[11].label.icon.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[11].style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[11].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[11].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[12].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[12].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[13].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[13].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[14].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[14].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[15].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[15].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[16].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[16].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[17].label.icon.style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[17].style.classes": {
+            "binding": {
+              "config": {
+                "path": "view.custom.numAlarms"
+              },
+              "transforms": [
+                {
+                  "expression": "if({value} \u003e 0, \"Header/Alarm_Active\", \"\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[17].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[17].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[19].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[2].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[1].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[1].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[2].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[2].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[3].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[3].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[4].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[4].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[5].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[5].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[6].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[6].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[7].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[7].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[8].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[8].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.items[9].style.fontWeight": {
+            "binding": {
+              "config": {
+                "path": "page.props.path"
+              },
+              "transforms": [
+                {
+                  "expression": "if ({value} \u003d {this.props.items[9].target}, \"bold\", \"normal\")",
+                  "type": "expression"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "backActionStyle": {
+            "classes": "Menu/All_Header"
+          },
+          "backActionText": "All Features",
+          "itemStyle": {
+            "classes": "Menu/Item"
+          },
+          "items": [
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/home"
+                },
+                "text": "Home"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/local_hospital"
+                },
+                "text": "P10 Animal Health"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/pu10_animal_health",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/transform"
+                },
+                "text": "Transesterification 1"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/transesterification1",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/transform"
+                },
+                "text": "Transesterification 2"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/transesterification2",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/waves"
+                },
+                "text": "RO Water"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/ro_water",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/invert_colors"
+                },
+                "text": "Waste Water Treatment"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/waste_water_treatment",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/category"
+                },
+                "text": "PU11 Utilities"
+              },
+              "navIcon": {},
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/pu11_utilities",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/settings_input_component"
+                },
+                "text": "Raw Material - Methyl Canolate"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/raw_material1",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/settings_input_component"
+                },
+                "text": "Raw Material - Canola Oil"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/raw_material2",
+              "visible": true
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/show_chart"
+                },
+                "text": "Charts"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/charts",
+              "visible": false
+            },
+            {
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/menu_book",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "text": "Recipes"
+              },
+              "navIcon": {},
+              "showHeader": false,
+              "style": {
+                "classes": ""
+              },
+              "target": "/recipes",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/alarm",
+                  "style": {}
+                },
+                "text": "Alarms"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {},
+              "target": "/alarms",
+              "visible": false
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/batch_prediction",
+                  "style": {
+                    "classes": ""
+                  }
+                },
+                "text": "PU10 - Batch Sequence"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/pu10batchsequence",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/batch_prediction"
+                },
+                "text": "PU11 - Batch Sequence"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/pu11batchsequence",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/insert_drive_file"
+                },
+                "text": "PU10 Batch Record"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/ebr",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/insert_drive_file"
+                },
+                "text": "PU11 Batch Record"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/ebrpu11",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/show_chart"
+                },
+                "text": "Charts"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {
+                "classes": ""
+              },
+              "target": "/charts",
+              "visible": true
+            },
+            {
+              "backActionText": "",
+              "enabled": true,
+              "items": [],
+              "label": {
+                "icon": {
+                  "path": "material/alarm",
+                  "style": {}
+                },
+                "text": "Alarms"
+              },
+              "navIcon": {
+                "color": "",
+                "path": ""
+              },
+              "resetOnClick": false,
+              "showHeader": true,
+              "style": {},
+              "target": "/alarms",
+              "visible": true
+            }
+          ],
+          "style": {
+            "classes": "Menu/Menu"
+          }
+        },
+        "type": "ia.navigation.menutree"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "Menu/Menu"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
